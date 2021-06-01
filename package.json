@@ -10,7 +10,8 @@
     "ws": "^7.4.6"
   },
   "scripts": {
-    "lint": "yarn run eslint index.js client.js"
+    "lint": "yarn run eslint index.js client.js",
+    "start": "node index.js"
   },
   "devDependencies": {
     "eslint": "^7.27.0"

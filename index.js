@@ -2,7 +2,7 @@ const express = require('express');
 const logger = require('morgan');
 const path = require('path');
 const ws = require('ws');
-const port = 8080
+const port = process.env.PORT || 8080
 
 const app = express();
 
