@@ -2,7 +2,9 @@ const process = require('process');
 const WebSocket = require('ws');
 
 const port = 8080
-const ws = new WebSocket(`ws://0.0.0.0:${port}/connect/1234`);
+const host = `0.0.0.0:${port}`
+const secret = '1234'
+const ws = new WebSocket(`ws://${host}/connect/${secret}`);
 
 ws.on('open', function open() {
   ws.send('something');
