@@ -24,16 +24,16 @@ wsServer.on('connection', (socket) => {
 
   socket.on('message', message => { 
     if (connections[peer]) {
-      console.log(`from ${id} to ${peer} relay`, message)
+      //console.log(`from ${id} to ${peer} relay`, message)
       connections[peer].send(message)
     } else {
-      console.log(`from ${id} to ${peer} queue`, message)
+      //console.log(`from ${id} to ${peer} queue`, message)
       queues[peer].push(message)
     }
   });
 
   socket.on('close', () => { 
-    console.log(`close ${id}`)
+    //console.log(`close ${id}`)
     delete connections[id]
     delete queues[peer]
     if (connections[peer]) {
@@ -43,7 +43,7 @@ wsServer.on('connection', (socket) => {
 
   if (queues[id]) {
     queues[id].forEach(message => {
-      console.log(`deque :: from ${peer} to ${id} queue`, message)
+      //console.log(`deque :: from ${peer} to ${id} queue`, message)
       socket.send(message)
     })
     delete queues[id]
